@@ -21,6 +21,7 @@ public class chessPractice{
           System.out.println("The valid  commands are: ");
           System.out.println("'practice' : practice chess openings! Once in practice mode, you can select the opening you want to practice");
           System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
           System.out.println();
         }
         
@@ -58,6 +59,23 @@ public class chessPractice{
           System.out.println();
             
           programState = 3;
+        }
+        else if(line.equals("quit")){
+          quit = true;
+        }
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+          
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println();
         }
         else{
           System.out.println("Please select a valid side. Type 'w' for White and 'b' for Black.");
@@ -97,6 +115,31 @@ public class chessPractice{
             
           programState = 6;
         }
+          
+        else if(line.equals("quit")){
+          quit = true;
+        }
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          System.out.println();
+          
+          programState = 1;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Reselect which side you would like to practice.");
+          System.out.println();
+        }
       }
       
       //Black openings
@@ -131,6 +174,30 @@ public class chessPractice{
             
           programState = 9;
         }
+        else if(line.equals("quit")){
+          quit = true;
+        }
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          System.out.println();
+          
+          programState = 1;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Reselect which side you would like to practice.");
+          System.out.println();
+        }
       }
         
       //Ruy Lopez
@@ -142,37 +209,63 @@ public class chessPractice{
         String move = " ";
         boolean end = false;
           
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionW(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptW() == 1){
-          System.out.println("You have completed the Ruy Lopez opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected White. Please select an opening.");
+          System.out.println("Type '1' for Ruy Lopez, '2' for King's Gambit, or '3' for Italian Game.");
+          System.out.println();
+            
+          programState = 2;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the Ruy Lopez opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionW(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptW() == 1){
+            System.out.println("You have completed the Ruy Lopez opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the Ruy Lopez opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
       else if(programState == 5){
@@ -183,37 +276,63 @@ public class chessPractice{
         String move = " ";
         boolean end = false;
           
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionW(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptW() == 2){
-          System.out.println("You have completed the King's Gambit opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected White. Please select an opening.");
+          System.out.println("Type '1' for Ruy Lopez, '2' for King's Gambit, or '3' for Italian Game.");
+          System.out.println();
+            
+          programState = 2;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the King's Gambit opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionW(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptW() == 2){
+            System.out.println("You have completed the King's Gambit opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the King's Gambit opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
       else if(programState == 6){
@@ -224,37 +343,63 @@ public class chessPractice{
         String move = " ";
         boolean end = false;
           
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionW(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptW() == 3){
-          System.out.println("You have completed the Italian Game opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected White. Please select an opening.");
+          System.out.println("Type '1' for Ruy Lopez, '2' for King's Gambit, or '3' for Italian Game.");
+          System.out.println();
+            
+          programState = 2;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the Italian Game opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionW(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptW() == 3){
+            System.out.println("You have completed the Italian Game opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the Italian Game opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
       else if(programState == 7){
@@ -264,38 +409,64 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
-          
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionB(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptB() == 1){
-          System.out.println("You have completed the Slav Defense opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected Black. Please select an opening.");
+          System.out.println("Type '1' for Slav Defense, '2' for King's Indian, or '3' for Bogo Indian.");
+          System.out.println();
+            
+          programState = 3;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the Slav Defense opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionB(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptB() == 1){
+            System.out.println("You have completed the Slav Defense opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the Slav Defense opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
       else if(programState == 8){
@@ -306,37 +477,63 @@ public class chessPractice{
         String move = " ";
         boolean end = false;
           
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionB(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptB() == 2){
-          System.out.println("You have completed the King's Indian opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected Black. Please select an opening.");
+          System.out.println("Type '1' for Slav Defense, '2' for King's Indian, or '3' for Bogo Indian.");
+          System.out.println();
+            
+          programState = 3;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the King's Indian opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionB(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptB() == 2){
+            System.out.println("You have completed the King's Indian opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the King's Indian opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
       else if(programState == 9){
@@ -347,37 +544,63 @@ public class chessPractice{
         String move = " ";
         boolean end = false;
           
-        while(!end){
-          space = sub.indexOf(' ');
-          if(space != -1){
-            move = sub.substring(0, space);
-          }
-          else{
-            move = sub;
-          }
-          //System.out.println(move);
-          if(move.equals("end")){
-            end = true;
-          }
-            
-          else{
-            checker.transitionB(move);
-            sub = sub.substring(space+1, sub.length());
-          }
+        if(line.equals("quit")){
+          quit = true;
         }
-          
-        if(checker.acceptB() == 3){
-          System.out.println("You have completed the Bogo Indian opening successfully!");
+        else if(line.equals("menu")){
+          System.out.println("Welcome to Chess Opening Practice! Please type a command to get started.");
+          System.out.println("For a list of commands type 'help'");
+          System.out.println();
+            
+          programState = 0;
+        }
+        else if(line.equals("reselect")){
+          System.out.println("You have selected Black. Please select an opening.");
+          System.out.println("Type '1' for Slav Defense, '2' for King's Indian, or '3' for Bogo Indian.");
+          System.out.println();
+            
+          programState = 3;
+        }
+        else if(line.equals("help")){
+          System.out.println("The valid  commands are: ");
+          System.out.println("'quit' : Stop using Chess Opening Practice.");
+          System.out.println("'menu' : Return to the main menu.");
+          System.out.println("'reselect' : Choose another black opening");
+          System.out.println();
         }
         else{
-          System.out.println("You not have successfully completed the Bogo Indian opening.");
+          while(!end){
+            space = sub.indexOf(' ');
+            if(space != -1){
+              move = sub.substring(0, space);
+            }
+            else{
+              move = sub;
+            }
+            //System.out.println(move);
+            if(move.equals("end")){
+              end = true;
+            }
+            
+            else{
+              checker.transitionB(move);
+              sub = sub.substring(space+1, sub.length());
+           }
+          }
+          
+          if(checker.acceptB() == 3){
+            System.out.println("You have completed the Bogo Indian opening successfully!");
+          }
+          else{
+            System.out.println("You not have successfully completed the Bogo Indian opening.");
+          }
+          
+          System.out.println();
+          System.out.println("Select the side you would like to practice.");
+          System.out.println("Type 'w' for White and 'b' for Black.");
+          
+          programState = 1;
         }
-          
-        System.out.println();
-        System.out.println("Select the side you would like to practice.");
-        System.out.println("Type 'w' for White and 'b' for Black.");
-          
-        programState = 1;
       }
         
     }
