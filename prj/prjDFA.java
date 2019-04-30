@@ -56,7 +56,7 @@ public class prjDFA{
     
   public prjDFA(){}
     
-  public void transitionW(String input){
+  public int transitionW(String input){
     if(input.equals("e2")){
       col = 0;
     }
@@ -91,6 +91,8 @@ public class prjDFA{
     else{
       state = 10;
     }
+      
+    return state;
   }
     
   public int acceptW(){
@@ -108,7 +110,7 @@ public class prjDFA{
     }
   }
     
-  public void transitionB(String input){
+  public int transitionB(String input){
     if(input.equals("d7")){
       col = 0;
     }
@@ -155,6 +157,8 @@ public class prjDFA{
     else{
       state = 13;
     }
+      
+    return state;
   }
     
   public int acceptB(){
