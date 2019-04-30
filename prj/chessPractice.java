@@ -208,6 +208,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
           
         if(line.equals("quit")){
           quit = true;
@@ -233,6 +234,7 @@ public class chessPractice{
           System.out.println("'reselect' : Choose another black opening");
           System.out.println();
         }
+          
         else{
           while(!end){
             space = sub.indexOf(' ');
@@ -248,9 +250,14 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionW(move);
+              current = checker.transitionW(move);
               sub = sub.substring(space+1, sub.length());
            }
+              
+            if(current == 10){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptW() == 1){
@@ -275,6 +282,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
           
         if(line.equals("quit")){
           quit = true;
@@ -315,9 +323,14 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionW(move);
+              current = checker.transitionW(move);
               sub = sub.substring(space+1, sub.length());
            }
+              
+            if(current == 10){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptW() == 2){
@@ -342,6 +355,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
           
         if(line.equals("quit")){
           quit = true;
@@ -382,9 +396,14 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionW(move);
+              current = checker.transitionW(move);
               sub = sub.substring(space+1, sub.length());
-           }
+            }
+            
+            if(current == 10){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptW() == 3){
@@ -409,6 +428,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
         
         if(line.equals("quit")){
           quit = true;
@@ -449,9 +469,14 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionB(move);
+              current = checker.transitionB(move);
               sub = sub.substring(space+1, sub.length());
-           }
+            }
+              
+            if(current == 13){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptB() == 1){
@@ -476,6 +501,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
           
         if(line.equals("quit")){
           quit = true;
@@ -516,9 +542,13 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionB(move);
+              current = checker.transitionB(move);
               sub = sub.substring(space+1, sub.length());
-           }
+            }
+            if(current == 13){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptB() == 2){
@@ -543,6 +573,7 @@ public class chessPractice{
         int space =0;
         String move = " ";
         boolean end = false;
+        int current = 0;
           
         if(line.equals("quit")){
           quit = true;
@@ -583,9 +614,13 @@ public class chessPractice{
             }
             
             else{
-              checker.transitionB(move);
+              current = checker.transitionB(move);
               sub = sub.substring(space+1, sub.length());
-           }
+            }
+            if(current == 13){
+              System.out.println("Invalid input detected, please make a proper move.");
+              end = true;
+            }
           }
           
           if(checker.acceptB() == 3){
