@@ -16,25 +16,25 @@ public class prjDFA{
   boolean invalid = false;
     
   /*COLUMN ORDER:
-    e2,e4,g1,f3,f1,f5,f4,f2
+    e2,e4,g1,f3,f1,b5,f4,f2,c4
   */
 
   int[][] whiteDFA = new int[][]{
-    {1,10,10,10,10,10,10,10},
-    {10,2,10,10,10,10,10,10},
-    {10,10,3,10,10,10,10,7},
-    {10,10,10,4,10,10,10,10},
-    {10,10,10,10,5,10,10,10},
-    {10,10,10,10,10,6,9,10},
-    {10,10,10,10,10,10,10,10},   //STATE 6: RUY LOPEZ
-    {10,10,10,10,10,10,8,10},
-    {10,10,10,10,10,10,10,10},   //STATE 8: KING's GAMBIT
-    {10,10,10,10,10,10,10,10},   //STATE 9: ITALIAN GAME
-    {10,10,10,10,10,10,10,10},   //STATE 10: ERROR
+    {1,10,10,10,10,10,10,10,10},
+    {10,2,10,10,10,10,10,10,10},
+    {10,10,3,10,10,10,10,7,10},
+    {10,10,10,4,10,10,10,10,10},
+    {10,10,10,10,5,10,10,10,10},
+    {10,10,10,10,10,6,10,10,9},
+    {10,10,10,10,10,10,10,10,10},   //STATE 6: RUY LOPEZ
+    {10,10,10,10,10,10,8,10,10},
+    {10,10,10,10,10,10,10,10,10},   //STATE 8: KING's GAMBIT
+    {10,10,10,10,10,10,10,10,10},   //STATE 9: ITALIAN GAME
+    {10,10,10,10,10,10,10,10,10},   //STATE 10: ERROR
   };
     
   /*COLUMN ORDER
-    d7,d5,c7,c6,g8,f6,g7,g6,e7,e6,f8,f4
+    d7,d5,c7,c6,g8,f6,g7,g6,e7,e6,f8,b4
   */
     
   int[][] blackDFA = new int[][]{
@@ -72,7 +72,7 @@ public class prjDFA{
     else if(input.equals("f1")){
       col = 4;
     }
-    else if(input.equals("f5")){
+    else if(input.equals("b5")){
       col = 5;
     }
     else if(input.equals("f4")){
@@ -80,6 +80,9 @@ public class prjDFA{
     }
     else if(input.equals("f2")){
       col = 7;
+    }
+    else if(input.equals("c4")){
+      col = 8;
     }
     else{
       invalid = true;
@@ -144,7 +147,7 @@ public class prjDFA{
     else if(input.equals("f8")){
       col = 10;
     }
-    else if(input.equals("f4")){
+    else if(input.equals("b4")){
       col = 11;
     }
     else{
